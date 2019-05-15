@@ -45,11 +45,12 @@ def handleIncomingCall(caller):
     if caller.caller == "Unknown":
         caller.caller = xbmcaddon.getLocalizedString(30602)
 
-    xbmc.executebuiltin("XBMC.Notification(%s,%s,%s,%s)" % (xbmcAddon.getLocalizedString(30601) % caller.caller,
-                                                            caller.number,
-                                                            int(notificationTimeout),
-                                                            notificationIcon
-                                                            ))
+    callerstring = xbmcAddon.getLocalizedString(30601) % caller.caller 
+    xbmc.executebuiltin("XBMC.Notification(%s,%s,%s,%s)" % ('"'+callerstring+'"',
+        caller.number,
+        int(notificationTimeout),
+        notificationIcon
+    ))
 
     activePlayers = json.loads(xbmc.executeJSONRPC('{"jsonrpc": "2.0", "method": "Player.GetActivePlayers", "id": 1}'))
 
