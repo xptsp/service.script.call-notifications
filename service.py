@@ -7,7 +7,6 @@ from twisted.internet import task
 
 from CallListenerClients.FritzboxClient import FritzboxClient
 from CallListenerClients.NcidClient import NcidClient
-from Yac.YacServer import YacServer
 
 runningOutsideXbmc = False
 try:
